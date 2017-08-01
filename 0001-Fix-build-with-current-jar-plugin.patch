@@ -1,0 +1,44 @@
+From 0c505777f861779eb499c3ad06dbef2ef8f6118a Mon Sep 17 00:00:00 2001
+From: Michael Simacek <msimacek@redhat.com>
+Date: Thu, 2 Jun 2016 13:17:13 +0200
+Subject: [PATCH] Fix build with current jar-plugin
+
+---
+ main/pom.xml | 8 ++++++++
+ pom.xml      | 1 -
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/main/pom.xml b/main/pom.xml
+index a23ce9e..70c9a0d 100644
+--- a/main/pom.xml
++++ b/main/pom.xml
+@@ -17,6 +17,14 @@
+   <build>
+     <plugins>
+       <plugin>
++        <artifactId>maven-jar-plugin</artifactId>
++        <configuration>
++          <archive>
++            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
++          </archive>
++        </configuration>
++      </plugin>
++      <plugin>
+         <groupId>com.keyboardsamurais.maven</groupId>
+         <artifactId>maven-timestamp-plugin</artifactId>
+       </plugin>
+diff --git a/pom.xml b/pom.xml
+index 4982e47..1b257bc 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -102,7 +102,6 @@
+       <plugin>
+         <artifactId>maven-jar-plugin</artifactId>
+         <configuration>
+-          <useDefaultManifestFile>true</useDefaultManifestFile>
+           <archive>
+             <index>true</index>
+             <addMavenDescriptor>false</addMavenDescriptor>
+-- 
+2.5.5
+
