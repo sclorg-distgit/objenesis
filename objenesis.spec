@@ -34,7 +34,7 @@
 Summary:        A library for instantiating Java objects
 Name:           %{?scl_prefix}objenesis
 Version:        2.1
-Release:        7%{dist}.1%{?dist}
+Release:        7.2%{?dist}
 License:        ASL 2.0
 URL:            http://objenesis.org/
 Source0:        https://github.com/easymock/%{pkg_name}/archive/%{version}.tar.gz
@@ -106,6 +106,9 @@ This package contains the API documentation for %{pkg_name}.
 %doc LICENSE.txt
 
 %changelog
+* Fri Jun 23 2017 Michael Simacek <msimacek@redhat.com> - 2.1-7.2
+- Fix incorrect release bump
+
 * Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 2.1-7.1
 - Mass rebuild 2017-06-22
 
